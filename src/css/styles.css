@@ -1,18 +1,219 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
 @import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.0/modern-normalize.css');
+@import url('izitoast/dist/css/iziToast.min.css');
+@import url('simplelightbox/dist/simple-lightbox.min.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 36px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-form {
+  width: 371px;
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.search-input {
+  width: 272px;
+  height: 40px;
+  font-family: inherit;
+
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-input:hover {
+  border-color: #000;
+}
+
+.search-input:focus {
+  border-color: #4e75ff;
+}
+
+.search-btn {
+  width: 91px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background: #4e75ff;
+  border: none;
+  font-family: inherit;
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background: #6c8cff;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gallery-item {
+  width: calc((100% - 48px) / 3);
+  border: 1px solid #808080;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+.img-info-list {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.7;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 20px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  box-sizing: border-box;
+}
+
+.gallery-item:hover .img-info-list {
+  opacity: 1;
+}
+
+.img-info-text {
+  font-weight: 600;
+  line-height: 1.33333;
+}
+
+.img-info-value {
+  font-weight: 400;
+  line-height: 2;
+}
+
+/* izi-toasts */
+.iziToast-wrapper-topRight {
+  padding: 36px;
+}
+
+.iziToast {
+  border-radius: 4px;
+  width: 432px;
+  background: #ef4040;
+  padding: 20px 58px 19px 20px;
+  margin: 0;
+  font-family: inherit;
+  position: relative;
+}
+
+.iziToast>.iziToast-progressbar {
+  background-color: #ffbebe;
+}
+
+.iziToast>.iziToast-progressbar>div {
+  background-color: #b51b1b;
+}
+
+.iziToast>.iziToast-body {
+  margin: 0;
+}
+
+.iziToast>.iziToast-body .iziToast-texts {
+  margin: 0 0 0 10px;
+}
+
+.iziToast>.iziToast-body .iziToast-message {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: #fafafb;
+}
+
+.iziToast>.iziToast-close {
+  background: url('../../src/img/x-close-btn.svg') no-repeat 50% 50%;
+  background-size: 16px;
+  width: 52px;
+  opacity: 1;
+}
+
+.iziToast>.iziToast-close:hover {
+  background-size: 20px;
+}
+
+/* ___________ LOADER  ___________ */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px dotted #FFF;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted #FF3D00;
+  border-style: solid solid dotted;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
